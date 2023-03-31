@@ -1,0 +1,75 @@
+#slides {
+  position: relative;
+}
+#slides .slides-container {
+  display: none;
+}
+#slides .scrollable {
+  *zoom: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+}
+#slides .scrollable:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.slides-navigation {
+  margin: 0 auto;
+  position: absolute;
+  z-index: 3;
+  top: 35%;
+  width: 100%;
+}
+.slides-navigation a {
+  position: absolute;
+  display: block;
+}
+.slides-navigation a.prev {
+  left: 10px;
+  width:79px;
+  height:144px;
+  background:url(setaAnterior.png) no-repeat;
+  text-indent:-9999px;
+}
+.slides-navigation a.next {
+  right: 10px;
+  width:79px;
+  height:144px;
+  background:url(setaProximo.png) no-repeat;
+  text-indent:-9999px;
+}
+
+.slides-pagination {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  
+}
+.slides-pagination a {
+  border:0;
+  border-radius: 50%; /* tirando o raio a paginação fica quadrada*/
+  width: 17px;
+  height: 17px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  background:url(btnTrans.png);
+  margin: 0 5px 10px 0;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+.slides-pagination a.current {
+  background:#6a2d2d;
+}

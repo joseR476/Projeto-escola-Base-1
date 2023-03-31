@@ -1,0 +1,99 @@
+/*Cores*/
+/*Cores Padrão do Sistema*/
+/*Cores Orcamento*/
+/*Cores para fundos listrados*/
+.espaco20 {
+  float: none;
+  clear: both;
+  height: 20px;
+}
+.titulo {
+  font: 1.1em 'Arial';
+  text-align: center;
+  margin-bottom: 10px;
+}
+.font-bold {
+  font-weight: bold;
+}
+table {
+  page-break-after: always;
+  font-family: 'Arial';
+  width: 100%;
+}
+table thead th {
+  background: #f5f7fa;
+  padding: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+table thead th.texto-direita {
+  text-align: right;
+}
+table tbody td.font-bold {
+  font-weight: bold;
+}
+table tbody td.texto-direita {
+  text-align: right;
+}
+table tbody td.texto-centro {
+  text-align: center;
+}
+table tbody td {
+  padding: 5px;
+  font-size: 0.7em;
+  border-bottom: 1px solid #f5f7fa;
+}
+table tfoot td.font-bold {
+  font-weight: bold;
+}
+table tfoot td.texto-direita {
+  text-align: right;
+}
+table tfoot td {
+  padding: 5px;
+  font-size: 0.8em;
+  border-bottom: 1px solid #f5f7fa;
+}
+div.cabecalho {
+  font-family: 'Arial';
+  font-size: .8em;
+  margin-bottom: 40px;
+}
+table.cabecalho {
+  font-family: 'Arial';
+  margin-bottom: 20px;
+}
+table.cabecalho tbody td {
+  padding: 5px;
+  font-size: 0.8em;
+  border-bottom: none;
+}
+#tabela-comparar-periodos {
+  border-collapse: collapse;
+}
+#tabela-comparar-periodos thead tr,
+#tabela-comparar-periodos thead th {
+  background: #2a7e78;
+  color: #fff;
+}
+#tabela-comparar-periodos tbody .linha-conta-pai {
+  background: #7fc0ad;
+}
+#tabela-comparar-periodos tbody .linha-conta-pai td {
+  color: #000;
+}
+#tabela-comparar-periodos tbody tr.linha-conta-filha td {
+  background: #d8e0e6;
+  color: #565e66;
+}
+#tabela-comparar-periodos tbody .linha-conta-filha td:nth-child(1) {
+  padding-left: 25px;
+}
+#tabela-comparar-periodos tbody .linha-conta-filha-filha td {
+  font-weight: 200 !important;
+  font-size: .8em;
+  color: #565e66;
+}
+#tabela-comparar-periodos tbody .linha-conta-filha-filha td:nth-child(1) {
+  padding-left: 50px;
+}

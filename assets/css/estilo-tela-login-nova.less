@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap');
+@import "cores";
+
+html,
+body{
+  width: 100%;
+  height: 100vh;
+}
+
+body{
+  background: url(../imagens/login/tela-login.jpg) 0 50% no-repeat;
+  background-size: cover;
+}
+
+#box-login{
+  display: flex;
+  padding: 80px;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  #box-form-login{
+    text-align: center;
+    max-width: 400px;
+  }
+
+  #formLogin{
+    width: 350px;
+  }
+
+}
+
+.font-bold{
+  font-weight: 600;
+}
+
+/*Inputs*/
+.grupo-input{
+  display: grid;
+  align-items: center;
+  grid-template-columns: 50px auto;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+
+  .icone{
+    color: @cor_texto_sucesso;
+  }
+
+  input,
+  select{
+    background: none;
+    border: none;
+    font-family: 'Montserrat';
+    font-weight: 300;
+  }
+}
+
+.grupo-select{
+  select{
+
+  }
+}
+
+.botao-login{
+  text-decoration: none;
+  display: inline-block;
+  background: @cor_texto_sucesso;
+  color: #ffffff;
+  font: 1.8em 'Montserrat' !important;
+  font-weight: 600 !important;
+  padding: 7px 50px;
+  border-radius: 50px;
+  border: none;
+  transition: all .3s;
+
+  &:hover{
+    background: @cor_sucesso_hover;
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+}
+
+/*
+@media (max-width: 961px) {
+
+  body{
+    background: #fff;
+  }
+
+  #box-login{
+    padding: 0;
+    display: block;
+  }
+
+  .coluna1,
+  .coluna2{
+    justify-content: center;
+    height: auto;
+  }
+
+  .coluna1{
+    padding: 40px 0;
+  }
+
+  .coluna2{
+    background: @cor_texto_sucesso;
+    height: 50vh;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+}
+ */

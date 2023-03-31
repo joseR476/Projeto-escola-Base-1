@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700&display=swap');
+@laranja: #ff9800;
+@vermelho: #ea3d4a;
+@roxo_escuro: #490f28;
+@roxo_claro: #b72e47;
+@font_padrao: 'Raleway';
+
+html{ width: 100%; height: 100%; }
+body{ height: 100%; display: flex; align-items: center; justify-content: center; background: #f9f9f9 url("../imagens/logos/logo-sem-texto-colorido-opacidade.png") no-repeat 98% 50%; background-size: 50%; }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #7a7a7a;
+  opacity: 0.5; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #7a7a7a;
+  opacity: 0.5; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #7a7a7a;
+  opacity: 0.5; /* Firefox */
+}
+#box-login-novo{ width: 350px; max-width: 350px; }
+/*#avatar-login{ background: rgba(255,255,255,0.2); display: inline-block; padding: 30px; border-radius: 200px; text-align: center; border: 1px solid #fff; }*/
+#avatar-login{ display: inline-block; padding: 15px; border-radius: 200px; text-align: center; }
+.box-caixa-texto{ display: grid; grid-template-columns: 50px auto; margin-bottom: 20px; border-bottom: 1px solid #7a7a7a;
+  /*.material-icons{ color: #ff9800; }*/
+  .material-icons{ color: #232323; }
+  label{ font-size: 0.8em; color: #232323; font-weight: bold; font-family: @font_padrao;  }
+  input[type=text], input[type=password]{ background: transparent; border: none; width: 100%; font-family: @font_padrao;
+    &:focus{ border: none; outline: none; }
+  }
+}
+
+button, a.button{ font-family: @font_padrao; background: transparent; border: 1px solid #0a8f08; display: block; text-align: center; width: 100%; padding: 10px; margin-bottom: 10px !important; border-radius: 50px; color: #232323 !important; transition: all 0.35s;
+  &:hover{ background: #0a8f08; border: 1px solid rgba(255,255,255,0.5); color: #fff !important; transform: translateY(-5px); }
+  &:focus{ border: none; outline: none; }
+}

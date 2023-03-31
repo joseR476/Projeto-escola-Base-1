@@ -1,0 +1,464 @@
+/*Cores*/
+/*Cores Padrão do Sistema*/
+/*Cores Orcamento*/
+/*Cores para fundos listrados*/
+.sombra {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 3px 10px rgba(0, 0, 0, 0.22);
+}
+/*-------------------------------------------------*/
+/*Dashboard*/
+#box-tabela-pagamentos-recebimentos {
+  min-width: 457px;
+}
+#box-tabela-pagamentos-recebimentos .linha {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin-bottom: 5px;
+}
+#box-tabela-pagamentos-recebimentos .linha div {
+  padding: 10px;
+}
+#box-tabela-pagamentos-recebimentos .linha:nth-child(2) {
+  background: #eaf7f4;
+  border: 1px solid #7fc0ad;
+  border-radius: 50px;
+}
+#box-tabela-pagamentos-recebimentos .linha:nth-child(2) div {
+  color: #2a7e78;
+}
+#box-tabela-pagamentos-recebimentos .linha:nth-child(3) {
+  background: #ffc6c2;
+  border: 1px solid #fa675c;
+  border-radius: 50px;
+}
+#box-tabela-pagamentos-recebimentos .linha:nth-child(3) div {
+  color: #d35249;
+}
+#box-saldos-disponiveis {
+  height: 303px;
+}
+#tabela-saldos-disponiveis tbody tr {
+  transition: background 0.35s;
+}
+#tabela-saldos-disponiveis tbody tr:hover {
+  background: #ffffff;
+}
+#tabela-saldos-disponiveis tbody tr:nth-child(odd) {
+  background-color: #FFF;
+}
+#box-ponto-equilibrio {
+  height: 303px;
+}
+.box-dashboard {
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+#cabecalho-lista-saldos-disponiveis {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 10px;
+  padding: 7px 15px;
+  background: #d8e0e6;
+  border-radius: 5px;
+}
+#cabecalho-lista-saldos-disponiveis div:nth-child(1) {
+  border-right: 1px solid #ffffff;
+}
+.linha-saldos-disponiveis {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 10px;
+  padding: 15px;
+  background: #f5f7fa;
+  border-radius: 5px;
+}
+.linha-saldos-disponiveis div:nth-child(1) {
+  border-right: 1px solid #dbdbdb;
+}
+/*-------------------------------------------------*/
+/*Dashboard Vendedor*/
+.box-meus-orcamento {
+  border-radius: 10px;
+  padding: 40px 20px;
+}
+.box-meus-orcamento .titulo {
+  color: #565e66;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+.box-meus-orcamento .quantidade {
+  font-size: 5em;
+  color: #7fc0ad;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.box-meus-orcamento .valor {
+  font-size: 1.3em;
+  color: #565e66;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/*-------------------------------------------------*/
+/*Markup*/
+.box-linha {
+  background: #f5f7fa;
+  padding: 15px 10px 10px 10px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+.box-linha .linha {
+  display: grid;
+  grid-template-columns: auto 100px;
+  align-items: center;
+  padding: 5px 10px;
+}
+/*-------------------------------------------------*/
+/*Fluxo de Caixa*/
+#bt-abrir-fechar-tudo {
+  border: 1px solid #7fc0ad;
+  padding: 10px 0;
+  border-radius: 50px;
+  transition: all .3s;
+}
+#bt-abrir-fechar-tudo:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  background: #ffffff;
+  color: #2a7e78;
+}
+.aberto {
+  background: #ffffff;
+  color: #2a7e78;
+}
+#campo-periodo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #d8e0e6;
+  border-radius: 50px;
+  overflow: hidden;
+}
+#campo-periodo button {
+  margin: 5px;
+}
+#campo-periodo input {
+  padding: 7px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: none;
+  max-width: 30%;
+}
+.seta-cima {
+  transform: rotate(0deg);
+}
+.seta-baixo {
+  transform: rotate(180deg);
+}
+.mostrar-linhas-filhas {
+  display: revert !important;
+}
+.mostrar-linhas-filhas-filhas {
+  display: revert !important;
+}
+#box-tabela {
+  width: 100%;
+  max-height: 550px;
+  overflow: auto;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+#tabela-fluxo-caixa {
+  border-collapse: collapse;
+}
+#tabela-fluxo-caixa thead {
+  background: #2a7e78;
+  color: #ffffff;
+  position: sticky;
+  z-index: 2;
+  top: 0;
+}
+#tabela-fluxo-caixa thead th:nth-child(1) {
+  width: 300px;
+  position: sticky;
+  background: #2a7e78;
+  color: #ffffff;
+  z-index: 2;
+  left: 0;
+}
+#tabela-fluxo-caixa thead th {
+  border-collapse: collapse;
+  border-radius: 0;
+  border-right: 1px solid #7fc0ad;
+  border-left: 1px solid #7fc0ad;
+  border-bottom: 1px solid #7fc0ad;
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+}
+#tabela-fluxo-caixa thead th .input {
+  text-align: center;
+  font-weight: bold;
+  color: #2a7e78;
+  font-size: 1.2em;
+}
+#tabela-fluxo-caixa tbody td:nth-child(1) {
+  position: sticky;
+  z-index: 1;
+  left: 0;
+}
+.linha-conta-pai tr,
+.linha-totalizadora tr,
+.linha-conta-pai td,
+.linha-totalizadora td {
+  background: #565e66;
+  color: #ffffff;
+}
+.linha-totalizadora td:nth-child(1) {
+  padding-left: 55px;
+}
+.linha-filha,
+.linha-filha-filha {
+  display: none;
+}
+.linha-filha td:nth-child(1) {
+  background: #f5f7fa !important;
+  padding-left: 50px;
+}
+.linha-filha-filha td:nth-child(1) {
+  background: #f5f7fa;
+  padding-left: 90px;
+}
+/*-------------------------------------------------*/
+/*Comparando Perídos*/
+#coluna-periodo-a {
+  display: grid;
+  grid-template-columns: 33% 33% 15px 33%;
+  align-items: center;
+}
+#coluna-periodo-a .grupo-input {
+  padding: 0 5px;
+}
+#coluna-periodo-a button {
+  display: block;
+  width: 100%;
+}
+#coluna-periodo-b {
+  display: grid;
+  grid-template-columns: 33% 15px 33% 33%;
+  align-items: center;
+}
+#coluna-periodo-b .grupo-input {
+  padding: 0 5px;
+}
+#coluna-periodo-b button {
+  display: block;
+  width: 100%;
+}
+@media (max-width: 1389px) {
+  #coluna-periodo-a {
+    display: block;
+    text-align: center;
+  }
+  #coluna-periodo-a .grupo-input {
+    padding: 0 5px;
+  }
+  #coluna-periodo-b {
+    display: block;
+    text-align: center;
+  }
+  #coluna-periodo-b .grupo-input {
+    padding: 0 5px;
+  }
+}
+/*-------------------------------------------------*/
+/*Extrato Caixas e Bancos*/
+#container-arrasta-solta {
+  background: #f5f7fa;
+  border: 3px dashed #8493ad;
+  border-radius: 10px;
+  padding: 15px;
+  width: 70%;
+  min-height: 200px;
+  margin: 30px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#container-arrasta-solta:hover {
+  cursor: pointer;
+}
+#container-arrasta-solta span {
+  font-size: 1.5em;
+  color: #8493ad;
+  width: 80%;
+}
+#container-arrasta-solta input[type=file] {
+  display: none;
+}
+.arquivo-selecionado {
+  background: #eaf7f4 !important;
+  border: 3px dashed #2a7e78 !important;
+}
+#cabecalho-movimentacao-conciliacao {
+  background: #f5f7fa;
+  border-bottom: 1px solid #d8e0e6;
+  padding: 15px 0;
+}
+#cabecalho-movimentacao-conciliacao,
+.linha-movimento-conciliacao {
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+}
+#lista-movimentacao-conciliacao {
+  overflow: hidden;
+}
+#lista-movimentacao-conciliacao .linha-movimento-conciliacao {
+  margin-bottom: 15px;
+}
+#lista-movimentacao-conciliacao .box-item-movimentacao {
+  width: 100%;
+  border: 1px solid #d8e0e6;
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.11);
+}
+#lista-movimentacao-conciliacao .coluna-botao-conciliar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#lista-movimentacao-conciliacao .bt-concilicar {
+  padding: 15px 40px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+#lista-movimentacao-conciliacao .bt-ativo {
+  color: #2a7e78;
+  background: #ffffff;
+  border: 2px solid #2a7e78;
+  transition: .3s;
+}
+#lista-movimentacao-conciliacao .bt-ativo:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 3px 10px rgba(0, 0, 0, 0.22);
+}
+#lista-movimentacao-conciliacao .bt-inativo {
+  color: #7fc0ad;
+  background: #ffffff;
+  border: 2px solid #7fc0ad;
+}
+.cabecalho-movimentacao-extrato-concilicacao {
+  display: grid;
+  grid-template-columns: auto 32px;
+  align-items: center;
+}
+.cabecalho-conta-extrato-concilicacao {
+  display: grid;
+  grid-template-columns: auto 32px 32px;
+  align-items: center;
+}
+@media (max-width: 1025px) {
+  #cabecalho-movimentacao-conciliacao {
+    display: block;
+    padding: 10px;
+  }
+  .linha-movimento-conciliacao {
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    border-bottom: 2px dashed #7fc0ad;
+  }
+  .linha-movimento-conciliacao:hover {
+    background: #f5f7fa;
+  }
+  .box-item-movimentacao,
+  .coluna-botao-conciliar,
+  .box-item-movimentacao {
+    margin-bottom: 15px;
+  }
+}
+/*-------------------------------------------------*/
+/*Simulação do Preço de Venda do Produto*/
+.campo-verde {
+  background: #EAF7F4;
+}
+.campo-vermelho {
+  background: #FFC6C2;
+}
+.campo-laranja {
+  background: #FFEEDB;
+}
+.box-simulacao {
+  border-radius: 10px;
+  border: 1px solid #EEEEEE;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.box-simulacao .pesquisa-produto {
+  display: grid;
+  grid-template-columns: 55px auto;
+  align-items: center;
+}
+.box-simulacao .pesquisa-produto .icone {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 3px 10px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-simulacao .campo-simulacao {
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  border: 1px solid #ECECEC;
+  border-radius: 5px;
+  padding: 10px 5px;
+  font-size: .9em;
+  margin-bottom: 5px;
+  color: #707070;
+}
+.box-simulacao .campo-simulacao input {
+  border: none;
+  background: transparent;
+}
+.box-simulacao .linha-tracejada {
+  width: 100%;
+  height: 2px;
+  border-bottom: 2px dashed #707070;
+}
+.linha-tracejada {
+  width: 100%;
+  height: 2px;
+  border-bottom: 2px dashed #707070;
+}
+#botao-adicionar-simulacao {
+  border: 3px dashed #AFAFAF;
+  border-radius: 10px;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s;
+}
+#botao-adicionar-simulacao:hover {
+  background: #f7f7f7;
+  cursor: pointer;
+}
+/*------------------------------------------------------*/
+/*Paginação*/
+#links-paginacao {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#links-paginacao a {
+  margin: 2px;
+}

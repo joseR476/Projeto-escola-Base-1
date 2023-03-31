@@ -1,0 +1,41 @@
+/*Geral*/
+*,
+html,
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table tr,
+table td {
+  border: 1px solid #a3a3a3;
+  padding: 2px;
+}
+.titulo-relatorio {
+  width: 100%;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.rodape-relatorio {
+  font-size: 0.8em;
+  font-weight: bold;
+  width: 100%;
+  text-align: right;
+}
+.texto-centro {
+  text-align: center;
+}
+.cinza-claro {
+  color: #808080;
+}
+.vermelho {
+  color: #ea3d4a;
+}
+.verde {
+  color: #87bf7a;
+}

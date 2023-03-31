@@ -1,0 +1,570 @@
+@import url('cores.less');
+
+.sombra {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25), 0 3px 10px rgba(0,0,0,0.22);
+}
+
+/*-------------------------------------------------*/
+/*Dashboard*/
+#box-tabela-pagamentos-recebimentos{
+  min-width: 457px;
+
+  .linha{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-bottom: 5px;
+
+    div{
+      padding: 10px;
+    }
+  }
+
+  .linha:nth-child(2){
+    background: @cor_sucesso;
+    border: 1px solid @cor_sucesso_hover;
+    border-radius: 50px;
+
+    div{
+      color: @cor_texto_sucesso;
+    }
+  }
+
+  .linha:nth-child(3){
+    background: @cor_erro;
+    border: 1px solid @cor_erro_hover;
+    border-radius: 50px;
+
+    div{
+      color: @cor_texto_erro;
+    }
+  }
+}
+
+#box-saldos-disponiveis{
+  height: 303px;
+}
+
+#tabela-saldos-disponiveis{
+  tbody{
+    tr{
+      transition: background 0.35s;
+    }
+
+    tr:hover{
+      background: #ffffff;
+    }
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #FFF;
+  }
+}
+
+#box-ponto-equilibrio{
+  height: 303px;
+}
+
+//-------------------------------------------------
+//-------------------------------------------------
+
+#container-dashboard{
+
+}
+
+.box-dashboard{
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+#cabecalho-lista-saldos-disponiveis{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 10px;
+  padding: 7px 15px;
+  background: @cor_default;
+  border-radius: 5px;
+
+  div:nth-child(1){
+    border-right: 1px solid #ffffff;
+  }
+}
+
+.linha-saldos-disponiveis{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 10px;
+  padding: 15px;
+  background: @cor_default_claro;
+  border-radius: 5px;
+
+  div:nth-child(1){
+    border-right: 1px solid #dbdbdb;
+  }
+}
+
+/*-------------------------------------------------*/
+/*Dashboard Vendedor*/
+.box-meus-orcamento{
+  border-radius: 10px;
+  padding: 40px 20px;
+
+  .titulo{
+    color: @cor_texto_default;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+
+  .quantidade{
+    font-size: 5em;
+    color: @cor_sucesso_hover;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .valor{
+    font-size: 1.3em;
+    color: @cor_texto_default;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
+
+/*-------------------------------------------------*/
+/*Markup*/
+.box-linha{
+  background: @cor_default_claro;
+  padding: 15px 10px 10px 10px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+
+  .linha{
+    display: grid;
+    grid-template-columns: auto 100px;
+    align-items: center;
+    padding: 5px 10px;
+  }
+}
+
+/*-------------------------------------------------*/
+/*Fluxo de Caixa*/
+
+#bt-abrir-fechar-tudo{
+  border: 1px solid @cor_sucesso_hover;
+  padding: 10px 0;
+  border-radius: 50px;
+  transition: all .3s;
+
+  &:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+    .aberto;
+  }
+}
+
+.aberto{
+  background: #ffffff;
+  color: @cor_texto_sucesso;
+}
+
+#campo-periodo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid @cor_default;
+  border-radius: 50px;
+  overflow: hidden;
+
+  button{
+    margin: 5px;
+  }
+
+  input{
+    padding: 7px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    max-width: 30%;
+  }
+}
+
+.seta-cima{
+  transform: rotate(0deg);
+}
+
+.seta-baixo{
+  transform: rotate(180deg);
+}
+
+.mostrar-linhas-filhas{
+  display: revert !important;
+}
+
+.mostrar-linhas-filhas-filhas{
+  display: revert !important;
+}
+
+#box-tabela{
+  width: 100%;
+  max-height: 550px;
+  overflow: auto;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+#tabela-fluxo-caixa{
+  border-collapse: collapse;
+
+  thead{
+    background: @cor_texto_sucesso;
+    color: #ffffff;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+
+    th:nth-child(1) {
+      width: 300px;
+      position: sticky;
+      background: @cor_texto_sucesso;
+      color: #ffffff;
+      z-index: 2;
+      left: 0;
+    }
+
+    th{
+      border-collapse: collapse;
+      border-radius: 0;
+      border-right: 1px solid @cor_sucesso_hover;
+      border-left: 1px solid @cor_sucesso_hover;
+      border-bottom: 1px solid @cor_sucesso_hover;
+      color: #ffffff;
+      padding: 15px;
+      text-align: center;
+
+      .input{
+        text-align: center;
+        font-weight: bold;
+        color: @cor_texto_sucesso;
+        font-size: 1.2em;
+      }
+    }
+  }
+  tbody{
+    td:nth-child(1) {
+      position: sticky;
+      z-index: 1;
+      left: 0;
+    }
+
+  }
+
+}
+
+.linha-conta-pai,
+.linha-totalizadora{
+  tr, td{
+    background: @cor_texto_default;
+    color: #ffffff;
+  }
+}
+
+.linha-totalizadora td:nth-child(1){
+  padding-left: 55px;
+}
+
+.linha-filha,
+.linha-filha-filha{
+  display: none;
+}
+
+.linha-filha td:nth-child(1){
+  background: @cor_default_claro !important;
+  padding-left: 50px;
+}
+
+.linha-filha-filha td:nth-child(1){
+  background: @cor_default_claro;
+  padding-left: 90px;
+}
+
+/*-------------------------------------------------*/
+/*Comparando Perídos*/
+#coluna-periodo-a{
+  display: grid;
+  grid-template-columns: 33% 33% 15px 33%;
+  align-items: center;
+
+  .grupo-input{
+    padding: 0 5px;
+  }
+
+  button{
+    display: block;
+    width: 100%;
+  }
+}
+
+#coluna-periodo-b{
+  display: grid;
+  grid-template-columns: 33% 15px 33% 33%;
+  align-items: center;
+
+  .grupo-input{
+    padding: 0 5px;
+  }
+
+  button{
+    display: block;
+    width: 100%;
+  }
+}
+
+@media(max-width: 1389px){
+  #coluna-periodo-a{
+    display: block;
+    text-align: center;
+
+    .grupo-input{
+      padding: 0 5px;
+    }
+  }
+
+  #coluna-periodo-b{
+    display: block;
+    text-align: center;
+
+    .grupo-input{
+      padding: 0 5px;
+    }
+  }
+}
+
+/*-------------------------------------------------*/
+/*Extrato Caixas e Bancos*/
+#container-arrasta-solta{
+  background: @cor_default_claro;
+  border: 3px dashed @cor_texto_default_claro;
+  border-radius: 10px;
+  padding: 15px;
+  width: 70%;
+  min-height: 200px;
+  margin: 30px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  span{
+    font-size: 1.5em;
+    color: @cor_texto_default_claro;
+    width: 80%;
+  }
+
+  input[type=file]{
+    display: none;
+  }
+}
+
+.arquivo-selecionado{
+  background: @cor_sucesso !important;
+  border: 3px dashed @cor_texto_sucesso !important;
+}
+
+#cabecalho-movimentacao-conciliacao{
+  background: @cor_default_claro;
+  border-bottom: 1px solid @cor_default;
+  padding: 15px 0;
+}
+
+#cabecalho-movimentacao-conciliacao,
+.linha-movimento-conciliacao{
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+}
+
+
+#lista-movimentacao-conciliacao{
+  overflow: hidden;
+
+  .linha-movimento-conciliacao{
+    margin-bottom: 15px;
+  }
+
+  .box-item-movimentacao{
+    width: 100%;
+    border: 1px solid @cor_default;
+    background: @cor_default_claro;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 1px 8px rgba(0,0,0, 11%)
+  }
+
+  .detalhe-ofx{
+
+  }
+
+  .coluna-botao-conciliar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bt-concilicar{
+    padding: 15px 40px;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+
+  .bt-ativo{
+    color: @cor_texto_sucesso;
+    background: #ffffff;
+    border: 2px solid @cor_texto_sucesso;
+    transition: .3s;
+
+    &:hover{
+      cursor: pointer;
+      transform: translateY(-5px);
+      .sombra;
+    }
+  }
+
+  .bt-inativo{
+    color: @cor_sucesso_hover;
+    background: #ffffff;
+    border: 2px solid @cor_sucesso_hover;
+  }
+}
+
+.cabecalho-movimentacao-extrato-concilicacao{
+  display: grid;
+  grid-template-columns: auto 32px;
+  align-items: center;
+}
+
+.cabecalho-conta-extrato-concilicacao{
+  display: grid;
+  grid-template-columns: auto 32px 32px;
+  align-items: center;
+}
+
+@media(max-width: 1025px){
+
+  #cabecalho-movimentacao-conciliacao{
+    display: block;
+    padding: 10px;
+  }
+
+  .linha-movimento-conciliacao{
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    border-bottom: 2px dashed @cor_sucesso_hover;
+
+    &:hover{
+      background: @cor_default_claro;
+    }
+  }
+
+  .box-item-movimentacao,
+  .coluna-botao-conciliar,
+  .box-item-movimentacao{
+    margin-bottom: 15px;
+  }
+
+  .box-item-movimentacao{
+
+  }
+}
+
+/*-------------------------------------------------*/
+/*Simulação do Preço de Venda do Produto*/
+
+.campo-verde{ background: #EAF7F4; }
+.campo-vermelho{ background: #FFC6C2; }
+.campo-laranja{ background: #FFEEDB; }
+
+.box-simulacao{
+  border-radius: 10px;
+  border: 1px solid #EEEEEE;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  .pesquisa-produto{
+    display: grid;
+    grid-template-columns: 55px auto;
+    align-items: center;
+
+    .icone{
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      .sombra;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .campo-simulacao{
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    border: 1px solid #ECECEC;
+    border-radius: 5px;
+    padding: 10px 5px;
+    font-size: .9em;
+    margin-bottom: 5px;
+    color: #707070;
+
+    input{
+      border: none;
+      background: transparent;
+    }
+  }
+
+  .linha-tracejada{
+    width: 100%;
+    height: 2px;
+    border-bottom: 2px dashed #707070;
+  }
+}
+
+.linha-tracejada{
+  width: 100%;
+  height: 2px;
+  border-bottom: 2px dashed #707070;
+}
+
+#botao-adicionar-simulacao{
+  border: 3px dashed #AFAFAF;
+  border-radius: 10px;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s;
+
+  &:hover{
+    background: #f7f7f7;
+    cursor: pointer;
+  }
+}
+
+/*------------------------------------------------------*/
+/*Paginação*/
+#links-paginacao{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  a{
+    margin: 2px;
+  }
+}
