@@ -1,6 +1,7 @@
 <?php
 namespace Painel;
 use Geral\Rotas;
+use Geral\Sessao;
 use Geral\Utilidades;
 use phpDocumentor\Reflection\Types\This;
 
@@ -12,7 +13,13 @@ class DiariosController extends Rotas
         $id = Utilidades::getUrl()[1];
         $this->dados->turma = \TurmasModel::find_by_id($id);
 
-        $materias = \VTurmasMateriasModel::all(['conditions' => ['id_turma = ?', $id], 'order' => 'nome_materia asc']);
+        $tipo_usuario = Sessao::getTipoUsuarioPainel();
+
+        if($tipo_usuario == 'admin'):
+            $materias = \VTurmasMateriasModel::all(['conditions' => ['id_turma = ?', $id], 'order' => 'nome_materia asc']);
+        else:
+            $materias = \VTurmasMateriasModel::all(['conditions' => ['id_turma = ? and id_professor = ?', $id, Sessao::getIdUsuarioPainel()], 'order' => 'nome_materia asc']);
+        endif;
         $this->dados->registros = $materias;
 
         $lista_materias = '';
@@ -38,6 +45,24 @@ class DiariosController extends Rotas
         $this->dados->id_materia = $id_materia;
 
         $this->dados->diarios = \DiariosModel::all(['conditions' => ['id_turma = ? and id_materia = ?', $id_turma, $id_materia], 'order' => 'data desc']);
+
+        $tipo_usuario = Sessao::getTipoUsuarioPainel();
+
+        if($tipo_usuario == 'admin'):
+            $materias = \VTurmasMateriasModel::all(['conditions' => ['id_turma = ?', $id_turma], 'order' => 'nome_materia asc']);
+        else:
+            $materias = \VTurmasMateriasModel::all(['conditions' => ['id_turma = ? and id_professor = ?', $id_turma, Sessao::getIdUsuarioPainel()], 'order' => 'nome_materia asc']);
+        endif;
+        //$this->dados->registros = $materias;
+
+        $lista_materias = '';
+        if(!empty($materias)):
+            foreach ($materias as $materia):
+                $lista_materias .= '<option value="'.$materia->id_materia.'">'.$materia->nome_materia.'</option>';
+            endforeach;
+        endif;
+
+        $this->dados->materias = $lista_materias;
 
     }
 

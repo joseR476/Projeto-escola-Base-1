@@ -16,6 +16,8 @@
             <div class="espaco20"></div>
         </li>
 
+        <?php if(\Geral\Sessao::getTipoUsuarioPainel() == 'admin'): ?>
+
         <li>
             <a href="<?php echo HOME ?>/painel/inicio" class="<?php echo \Helpers\AsidePainelHelper::menuAtivo(\Helpers\AsidePainelHelper::INICIO, \Geral\Utilidades::getUrl()[0]); ?>">
                 <div class="fundo-icone">
@@ -43,6 +45,8 @@
             </a>
         </li>
 
+        <?php endif; ?>
+
         <li>
             <a href="<?php echo HOME ?>/painel/turmas" class="<?php echo \Helpers\AsidePainelHelper::menuAtivo(\Helpers\AsidePainelHelper::TURMAS, \Geral\Utilidades::getUrl()[0]); ?>">
                 <div class="fundo-icone">
@@ -51,6 +55,8 @@
                 <span class="link_name">Turmas</span>
             </a>
         </li>
+
+        <?php if(\Geral\Sessao::getTipoUsuarioPainel() == 'admin'): ?>
 
         <li>
             <a href="<?php echo HOME ?>/painel/materias" class="<?php echo \Helpers\AsidePainelHelper::menuAtivo(\Helpers\AsidePainelHelper::MATERIAS, \Geral\Utilidades::getUrl()[0]); ?>">
@@ -70,6 +76,7 @@
             </a>
         </li>
 
+        <?php endif; ?>
 
         <!--
         <li>

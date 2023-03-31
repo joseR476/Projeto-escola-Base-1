@@ -258,6 +258,13 @@ class UsuariosModel extends ActiveRecord\Model {
     {
 
         $registro = self::find_by_id(self::getId());
+
+        if($registro->tipo == 'professor'):
+            if(TurmasMateriasModel::find_by_id_professor($registro->id)):
+                return 'erro-professor';
+            endif;
+        endif;
+
         if(!empty($registro->imagem)):
             @unlink('../assets/imagens/usuarios/'.$registro->imagem);
         endif;

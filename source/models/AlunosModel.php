@@ -183,6 +183,10 @@ class AlunosModel extends Model
 
         $registro = self::find_by_id(self::getId());
 
+        if(TurmasAlunosModel::find_by_id_aluno($registro->id)):
+            return 'erro';
+        endif;
+
         if(!empty($registro->imagem)):
             @unlink('../assets/imagens/alunos/'.$registro->imagem);
         endif;

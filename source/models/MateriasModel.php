@@ -60,6 +60,11 @@ class MateriasModel extends Model
     {
 
         $registro = self::find_by_id(self::getId());
+
+        if(TurmasMateriasModel::find_by_id_materia($registro->id)):
+            return 'erro';
+        endif;
+
         $registro->delete();
 
         return 'ok';

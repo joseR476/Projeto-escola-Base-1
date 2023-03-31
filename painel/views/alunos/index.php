@@ -30,22 +30,22 @@
     </header>
     <div class="espaco10"></div>
 
-    <section class="bloco-conteudo">
-
-        <?php if(\Geral\Utilidades::getUrl()[1] == 'exclusao-negada'): ?>
-            <div class="box-info fundo-listrado-erro">
-                <div class="conteudo flex-centro">
-                    <div class="fundo-icone">
-                        <span class="material-icons icone texto-cor-erro">error_outline</span>
-                    </div>
-
-                    <span class="texto-info texto-cor-erro">
-                    Exclusão negada! É preciso haver pelo menos um usuário cadastrado.
-                </span>
+    <?php if(\Geral\Utilidades::getUrl()[1] == 'erro'): ?>
+        <div class="box-info fundo-erro">
+            <div class="conteudo flex-centro">
+                <div class="fundo-icone">
+                    <span class="material-icons icone texto-cor-erro">error_outline</span>
                 </div>
+
+                <span class="texto-info texto-cor-erro">
+                    Este aluno não pode ser excluído pois já está matriculado em uma ou mais turmas.
+                </span>
             </div>
-            <div class="espaco10"></div>
-        <?php endif; ?>
+        </div>
+        <div class="espaco10"></div>
+    <?php endif; ?>
+
+    <section class="bloco-conteudo">
 
         <div class="table-responsive">
             <table class="tabela-linha-ativa">
@@ -123,6 +123,16 @@ ModalComIcone(
     '
             <a href="" id="bt-excluir" class="botao botao-padrao-claro botao-arredondado texto-cor-padrao width120">Sim</a>
             <a href="#" class="botao botao-padrao-claro botao-arredondado width100" rel="modal:close">Cancelar</a>
+            '
+);
+
+ModalComIcone(
+    'erro-delete-modal',
+    '<span class="material-icons texto-cor-erro icone-modal">error</span>',
+    'Erro',
+    'Este aluno não pode ser excluído pois já está matriculado em uma ou mais turmas.',
+    '
+            <a href="#" class="botao botao-padrao-claro botao-arredondado width100" rel="modal:close">OK</a>
             '
 );
 ?>

@@ -72,6 +72,36 @@ class TurmasModel extends Model
     {
 
         $registro = self::find_by_id(self::getId());
+
+        $alunos = TurmasAlunosModel::all(['conditions' => ['id_turma = ?', $registro->id]]);
+        $materias = TurmasMateriasModel::all(['conditions' => ['id_turma = ?', $registro->id]]);
+        $diarios = DiariosModel::all(['conditions' => ['id_turma = ?', $registro->id]]);
+        $registros_diarios = RegistrosDiarioClasseModel::all(['conditions' => ['id_turma = ?', $registro->id]]);
+
+        if(!empty($alunos)):
+            foreach ($alunos as $aluno):
+                $aluno->delete();
+            endforeach;
+        endif;
+
+        if(!empty($materias)):
+            foreach ($materias as $materia):
+                $materia->delete();
+            endforeach;
+        endif;
+
+        if(!empty($diarios)):
+            foreach ($diarios as $diario):
+                $diario->delete();
+            endforeach;
+        endif;
+
+        if(!empty($registros_diarios)):
+            foreach ($registros_diarios as $registro_diario):
+                $registro_diario->delete();
+            endforeach;
+        endif;
+
         $registro->delete();
 
         return 'ok';

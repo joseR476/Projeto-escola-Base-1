@@ -30,9 +30,7 @@
     </header>
     <div class="espaco10"></div>
 
-    <section class="bloco-conteudo">
-
-        <?php if(\Geral\Utilidades::getUrl()[1] == 'exclusao-negada'): ?>
+    <?php if(\Geral\Utilidades::getUrl()[1] == 'exclusao-negada'): ?>
         <div class="box-info fundo-listrado-erro">
             <div class="conteudo flex-centro">
                 <div class="fundo-icone">
@@ -45,7 +43,24 @@
             </div>
         </div>
         <div class="espaco10"></div>
-        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if(\Geral\Utilidades::getUrl()[1] == 'erro-professor'): ?>
+        <div class="box-info fundo-erro">
+            <div class="conteudo flex-centro">
+                <div class="fundo-icone">
+                    <span class="material-icons icone texto-cor-erro">error_outline</span>
+                </div>
+
+                <span class="texto-info texto-cor-erro">
+                    Ops! Este professor não pode ser excluído pois já está sendo utilizado em uma ou mais turmas.
+                </span>
+            </div>
+        </div>
+        <div class="espaco10"></div>
+    <?php endif; ?>
+
+    <section class="bloco-conteudo">
 
         <?php
         if(!empty($dados->registros)):

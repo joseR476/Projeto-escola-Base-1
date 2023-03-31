@@ -119,8 +119,8 @@ class UsuariosController extends Rotas implements iControllers
             $this->Redireciona(HOME.'/painel/usuarios/exclusao-negada');
         else:
             \UsuariosModel::setId($id);
-            \UsuariosModel::excluir();
-            $this->Redireciona(HOME.'/painel/usuarios');
+            $retorno = \UsuariosModel::excluir();
+            $this->Redireciona(HOME.'/painel/usuarios/'.$retorno);
         endif;
     }
 

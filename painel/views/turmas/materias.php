@@ -11,6 +11,7 @@
                 <div class="titulo font-bold texto-cor-sucesso">Matéria da Turma: <?php echo SeriesModel::find_by_id($dados->turma->id_serie)->nome .' '. $dados->turma->turma.' '.($dados->turma->turno == 'manha' ? 'Manhã' : 'Tarde') ?></div>
             </div>
 
+            <?php if(\Geral\Sessao::getTipoUsuarioPainel() == 'admin'): ?>
             <div>
                 <a @click="novo" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
                     <div class="botao-flex">
@@ -19,6 +20,7 @@
                     </div>
                 </a>
             </div>
+            <?php endif; ?>
         </div>
         <div class="clear"></div>
 
@@ -60,14 +62,22 @@
                 if(!empty($dados->registros)):
                     foreach ($dados->registros as $registro):
 
+                        if (\Geral\Sessao::getTipoUsuarioPainel() == 'admin'):
+                            $botoes = '
+                                <button data-tippy-content="Alterar Cadastro" @click="alterar('.$registro->id.')" href="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">create</i></button>
+                                <button data-tippy-content="Excluir" @click="excluir('.$registro->id.')" href="#delete-modal" rel="modal:open" endereco="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno bt-excluir" type="button"><i class="material-icons icone">delete</i></button>
+                            ';
+                        else:
+                            $botoes = '';
+                        endif;
+
                         echo '
                             <tr>
                                 <td width="50">'.$registro->id.'</td>
                                 <td class="texto-esquerda">'.$registro->nome_materia.'</td>
                                 <td class="texto-esquerda">'.$registro->nome_professor.'</td>
                                 <td class="flex-a-direita">
-                                    <button data-tippy-content="Alterar Cadastro" @click="alterar('.$registro->id.')" href="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">create</i></button>
-                                    <button data-tippy-content="Excluir" @click="excluir('.$registro->id.')" href="#delete-modal" rel="modal:open" endereco="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno bt-excluir" type="button"><i class="material-icons icone">delete</i></button>
+                                    '.$botoes.'
                                 </td>
                             </tr>
                         ';

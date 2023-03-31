@@ -34,7 +34,12 @@ class PainelController extends Rotas {
 
             if(!empty($usuario) && (BcryptHelper::check($senha, $usuario->senha))):
                 Sessao::criaSessaoUsuarioPainel($usuario);
-                $this->Redireciona(HOME.'/painel/inicio');
+
+                if($usuario->tipo == 'admin'):
+                    $this->Redireciona(HOME.'/painel/inicio');
+                else:
+                    $this->Redireciona(HOME.'/painel/turmas');
+                endif;
             else:
                 $this->Redireciona(HOME.'/painel/login/erro');
             endif;

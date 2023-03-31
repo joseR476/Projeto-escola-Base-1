@@ -76,9 +76,9 @@ class AlunosController extends Rotas
 
         $id = Utilidades::getUrl()[1];
         \AlunosModel::setId($id);
-        \AlunosModel::excluir();
+        $retorno = \AlunosModel::excluir();
 
-        $this->Redireciona(HOME.'/painel/alunos/');
+        $this->Redireciona(HOME.'/painel/alunos/'.$retorno);
 
     }
 

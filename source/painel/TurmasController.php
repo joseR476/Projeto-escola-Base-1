@@ -1,6 +1,7 @@
 <?php
 namespace Painel;
 use Geral\Rotas;
+use Geral\Sessao;
 
 class TurmasController extends Rotas
 {
@@ -8,8 +9,14 @@ class TurmasController extends Rotas
     public function index()
     {
 
+        $tipo_usuario = Sessao::getTipoUsuarioPainel();
         $pesquisa = !empty(filtra_string($_POST['pesquisa'])) ? '%'.filtra_string($_POST['pesquisa']).'%' : '%';
-        $this->dados->registros = \TurmasModel::all(['conditions' => ['turma like ?', $pesquisa], 'order' => 'turma asc']);
+
+        if($tipo_usuario == 'admin'):
+            $this->dados->registros = \TurmasModel::all(['conditions' => ['turma like ?', $pesquisa], 'order' => 'turma asc']);
+        else:
+            $this->dados->registros = \VTurmasMateriasModel::all(['conditions' => ['nome_turma like ? and id_professor = ?', $pesquisa, Sessao::getIdUsuarioPainel()], 'order' => 'nome_turma asc']);
+        endif;
 
         $series = \SeriesModel::all(['order' => 'nome asc']);
         $lista_series = '';
@@ -20,6 +27,7 @@ class TurmasController extends Rotas
 
             endforeach;
         endif;
+        $this->dados->series = $lista_series;
 
         $turmas = \VTurmasModel::all(['order' => 'nome_serie asc']);
         $lista_turmas = '';

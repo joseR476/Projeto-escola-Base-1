@@ -4,12 +4,15 @@
         <div class="flex-space-between">
             <div class="titulo font-bold texto-cor-sucesso">Turmas</div>
             <div>
+
+                <?php if(\Geral\Sessao::getTipoUsuarioPainel() == 'admin'): ?>
                 <a @click="novo" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso margin-right5">
                     <div class="botao-flex">
                         <span class="icone material-icons">add</span>
                         <span>Adicionar</span>
                     </div>
                 </a>
+                <?php endif; ?>
 
                 <a @click="modalRelatorio" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
                     <div class="botao-flex">
@@ -74,22 +77,41 @@
 
                                 $numero_alunos = TurmasAlunosModel::find_by_sql("select count(id_aluno) as total_alunos from alunos_turmas where id_turma = '{$registro->id}' ");
 
-                                echo '
-                                    <tr>
-                                        <td width="50">'.$registro->id.'</td>
-                                        <td class="texto-esquerda">'.($registro->turno == 'manha' ? 'Manhã' : 'Tarde').'</td>
-                                        <td class="texto-esquerda">'.(SeriesModel::find_by_id($registro->id_serie)->nome).'</td>
-                                        <td class="texto-centro">'.$registro->turma.'</td>
-                                        <td class="texto-centro">'.$numero_alunos[0]->total_alunos.'</td>
-                                        <td class="flex-a-direita">
-                                            <button data-tippy-content="Alterar Cadastro" @click="alterar('.$registro->id.')" href="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">create</i></button>
-                                            <a data-tippy-content="Matérias" href="'.HOME.'/painel/materias-turma/'.$registro->id.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">auto_stories</i></a>
-                                            <a data-tippy-content="Alunos" href="'.HOME.'/painel/alunos-turma/'.$registro->id.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">perm_identity</i></a>
-                                            <a data-tippy-content="Diários de Classe" href="'.HOME.'/painel/diarios-turma/'.$registro->id.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">note_alt</i></a>
-                                            <button data-tippy-content="Excluir" @click="excluir('.$registro->id.')" href="#delete-modal" rel="modal:open" endereco="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno bt-excluir" type="button"><i class="material-icons icone">delete</i></button>
-                                        </td>
-                                    </tr>              
-                                ';
+                                if(\Geral\Sessao::getTipoUsuarioPainel() == 'admin'):
+                                    echo '
+                                        <tr>
+                                            <td width="50">'.$registro->id.'</td>
+                                            <td class="texto-esquerda">'.($registro->turno == 'manha' ? 'Manhã' : 'Tarde').'</td>
+                                            <td class="texto-esquerda">'.(SeriesModel::find_by_id($registro->id_serie)->nome).'</td>
+                                            <td class="texto-centro">'.$registro->turma.'</td>
+                                            <td class="texto-centro">'.$numero_alunos[0]->total_alunos.'</td>
+                                            <td class="flex-a-direita">
+                                                <button data-tippy-content="Alterar Cadastro" @click="alterar('.$registro->id.')" href="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">create</i></button>
+                                                <a data-tippy-content="Matérias" href="'.HOME.'/painel/materias-turma/'.$registro->id.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">auto_stories</i></a>
+                                                <a data-tippy-content="Alunos" href="'.HOME.'/painel/alunos-turma/'.$registro->id.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">perm_identity</i></a>
+                                                <a data-tippy-content="Diários de Classe" href="'.HOME.'/painel/diarios-turma/'.$registro->id.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">note_alt</i></a>
+                                                <button data-tippy-content="Excluir" @click="excluir('.$registro->id.')" href="#delete-modal" rel="modal:open" endereco="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno bt-excluir" type="button"><i class="material-icons icone">delete</i></button>
+                                            </td>
+                                        </tr>              
+                                    ';
+                                else:
+                                    echo '
+                                        <tr>
+                                            <td width="50">'.$registro->id_turma.'</td>
+                                            <td class="texto-esquerda">'.(TurmasModel::find_by_id($registro->id_turma)->turno == 'manha' ? 'Manhã' : 'Tarde').'</td>
+                                            <td class="texto-esquerda">'.(SeriesModel::find_by_id($registro->id_serie)->nome).'</td>
+                                            <td class="texto-centro">'.$registro->nome_turma.'</td>
+                                            <td class="texto-centro">'.$numero_alunos[0]->total_alunos.'</td>
+                                            <td class="flex-a-direita">
+                                                <button data-tippy-content="Alterar Cadastro" @click="alterar('.$registro->id_turma.')" href="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">create</i></button>
+                                                <a data-tippy-content="Matérias" href="'.HOME.'/painel/materias-turma/'.$registro->id_turma.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">auto_stories</i></a>
+                                                <a data-tippy-content="Alunos" href="'.HOME.'/painel/alunos-turma/'.$registro->id_turma.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">perm_identity</i></a>
+                                                <a data-tippy-content="Diários de Classe" href="'.HOME.'/painel/diarios-turma/'.$registro->id_turma.'" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right10"><i class="material-icons icone">note_alt</i></a>
+                                                <button data-tippy-content="Excluir" @click="excluir('.$registro->id_turma.')" href="#delete-modal" rel="modal:open" endereco="" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno bt-excluir" type="button"><i class="material-icons icone">delete</i></button>
+                                            </td>
+                                        </tr>              
+                                    ';
+                                endif;
 
                             endforeach;
                         endif;
@@ -204,7 +226,7 @@ ModalComIcone(
     'delete-modal',
     '<span class="material-icons texto-cor-erro icone-modal margin-right10">clear</span>',
     'Exclusão',
-    'Confirma a exclusão deste item? ',
+    'Confirma a exclusão desta Turma? Esta ação é irreverssível.',
     '
             <button type="button" @click="excluir" class="botao botao-padrao-claro botao-arredondado texto-cor-padrao width120">Sim</button>
             <a href="#" id="bt-fechar-modal-excluir" class="botao botao-padrao-claro botao-arredondado width100" rel="modal:close">Cancelar</a>

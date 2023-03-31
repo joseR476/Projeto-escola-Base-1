@@ -28,6 +28,7 @@ class Sessao{
     {
         SessaoHelper::regenerarSessao(SESSAO_USUARIO_PAINEL);
         $_SESSION[SESSAO_USUARIO_PAINEL]['id_usuario'] = $usuario->id;
+        $_SESSION[SESSAO_USUARIO_PAINEL]['tipo_usuario'] = $usuario->tipo;
         $_SESSION[SESSAO_USUARIO_PAINEL]['nome_usuario'] = $usuario->nome;
         $_SESSION[SESSAO_USUARIO_PAINEL]['imagem_usuario'] = $usuario->imagem;
     }
@@ -36,6 +37,11 @@ class Sessao{
     static public function getIdUsuarioPainel()
     {
         return $_SESSION[SESSAO_USUARIO_PAINEL]['id_usuario'];
+    }
+
+    static public function getTipoUsuarioPainel()
+    {
+        return $_SESSION[SESSAO_USUARIO_PAINEL]['tipo_usuario'];
     }
 
     /*Metodo para retornar o nome do usuario logaodo*/

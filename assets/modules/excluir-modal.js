@@ -49,6 +49,10 @@ let vmModalExcluir = new Vue({
 
                 return true;
             } else {
+                $('#erro-delete-modal').modal({
+                    showClose: false,
+                    clickClose: false,
+                });
                 return false;
             }
 

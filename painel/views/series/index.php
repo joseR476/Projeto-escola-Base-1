@@ -119,4 +119,14 @@ ModalComIcone(
             <a href="#" id="bt-fechar-modal-excluir" class="botao botao-padrao-claro botao-arredondado width100" rel="modal:close">Cancelar</a>
             '
 );
+
+ModalComIcone(
+    'erro-delete-modal',
+    '<span class="material-icons texto-cor-erro icone-modal">error</span>',
+    'Erro',
+    'Esta série não pode ser excluída pois já está sendo utilizada em uma ou mais turmas.',
+    '
+            <a href="#" class="botao botao-padrao-claro botao-arredondado width100" rel="modal:close">OK</a>
+            '
+);
 ?>
