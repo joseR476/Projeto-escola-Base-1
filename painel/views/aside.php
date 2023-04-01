@@ -1,8 +1,9 @@
 <div class="sidebar">
+    <div class="espaco20"></div>
     <div class="logo-details">
         <i class='bx bxl-c-plus-plus'></i>
         <span class="logo_name">
-            <img src="<?php echo HOME ?>/assets/imagens/logos/logo-branca.png" style="width: 55%;" alt="">
+            <img src="<?php echo HOME ?>/assets/imagens/logo/logo.png" style="width: 55%;" alt="">
         </span>
     </div>
     <ul class="nav-links">

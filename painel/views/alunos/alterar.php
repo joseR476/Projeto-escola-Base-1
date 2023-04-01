@@ -6,9 +6,9 @@
                 <div><span class="material-icons icone">keyboard_arrow_left</span></div>
             </a>
 
-            <div class="titulo font-light texto-cor-sucesso">
+            <div class="titulo font-light texto-cor-dourado">
                 <?php echo empty($dados->registro) ? 'Novo Aluno' : 'Alterar Aluno'; ?>
-                <?php echo !empty($dados->registro) ? '<span class="font-bold texto-cor-sucesso">'.$dados->registro->nome.'</span>' : ''; ?>
+                <?php echo !empty($dados->registro) ? '<span class="font-bold dourado">'.$dados->registro->nome.'</span>' : ''; ?>
             </div>
         </div>
         <div class="clear"></div>
@@ -169,7 +169,7 @@
             </div>
 
             <div class="col-md-12">
-                <button type="submit" name="salvar" id="salvar" class="botao botao-sucesso botao-quadradro botao-delineado-sucesso">
+                <button type="submit" name="salvar" id="salvar" class="botao botao-dourado botao-quadradro botao-delineado-dourado">
                     <div class="botao-flex">
                         <span class="material-icons icone">done</span>
                         <div class="texto">Salvar</div>

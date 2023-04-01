@@ -91,7 +91,7 @@ body {
 .botao-login {
   text-decoration: none;
   display: inline-block;
-  background: #2a7e78;
+  background: #f0a500;
   color: #ffffff;
   font: 1.8em 'Montserrat' !important;
   font-weight: 600 !important;
@@ -101,7 +101,7 @@ body {
   transition: all .3s;
 }
 .botao-login:hover {
-  background: #7fc0ad;
+  background: #b67b00;
   cursor: pointer;
   transform: translateY(-5px);
 }

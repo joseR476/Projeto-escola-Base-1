@@ -2,9 +2,9 @@
     <header class="bloco-conteudo">
 
         <div class="flex-space-between">
-            <div class="titulo font-bold texto-cor-sucesso">Usuários</div>
+            <div class="titulo font-bold texto-cor-dourado">Usuários</div>
             <div>
-                <a href="<?php echo HOME ?>/painel/novo-usuario" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
+                <a href="<?php echo HOME ?>/painel/novo-usuario" class="botao botao-arredondado botao-dourado botao-delibotao-dourado">
                     <div class="botao-flex">
                         <span class="icone material-icons">add</span>
                         <span>Adicionar</span>

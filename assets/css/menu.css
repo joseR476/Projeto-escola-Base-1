@@ -54,7 +54,7 @@
   left: 0;
   height: 100%;
   width: 260px;
-  background: #2a7e78;
+  background: #3a3a3a;
   z-index: 9;
   transition: all 0.5s ease;
 }
@@ -120,7 +120,7 @@
   margin: 5px 18px 5px 20px;
 }
 .sidebar .nav-links li:hover .fundo-icone .material-icons {
-  color: #2a7e78;
+  color: #f0a500;
 }
 .sidebar .nav-links li .iocn-link {
   display: flex;
@@ -165,12 +165,12 @@
   margin: 0 18px 0 20px;
 }
 .sidebar .nav-links li .menu-ativo .fundo-icone .material-icons {
-  color: #2a7e78;
+  color: #f0a500;
 }
 .sidebar .nav-links li a .link_name {
   font-size: 18px;
   font-weight: 400;
-  color: #fff;
+  color: #f0a500;
   transition: all 0.4s ease;
 }
 .sidebar.close .nav-links li a .link_name {
@@ -243,7 +243,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background: #1d4e4a;
+  background: #b67b00;
   padding: 12px 0;
   transition: all 0.5s ease;
 }

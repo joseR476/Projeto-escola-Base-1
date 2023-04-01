@@ -6,7 +6,7 @@
                 <div><span class="material-icons icone">keyboard_arrow_left</span></div>
             </a>
 
-            <div class="titulo font-light texto-cor-sucesso">
+            <div class="titulo font-light texto-cor-dourado">
                 <?php echo empty($dados->registro) ? 'Novo Usuário' : 'Alterar Usuário'; ?>
                 <?php echo !empty($dados->registro) ? '<span class="font-bold texto-cor-sucesso">'.$dados->registro->nome.'</span>' : ''; ?>
             </div>
@@ -239,7 +239,7 @@
 
                         <div class="col-md-4">
                             <div class="espaco15"></div>
-                            <button @click="abrirModalAlteraSenha" type="button" class="botao botao-sucesso botao-arredondado botao-delineado-sucesso">Alterar Senha</button>
+                            <button @click="abrirModalAlteraSenha" type="button" class="botao botao-dourado botao-arredondado botao-delineado-sucesso">Alterar Senha</button>
                         </div>
                         <div class="clear"></div>
 
@@ -252,7 +252,7 @@
             </div>
 
             <div class="col-md-12">
-                <button type="submit" name="salvar" id="salvar" class="botao botao-sucesso botao-quadradro botao-delineado-sucesso">
+                <button type="submit" name="salvar" id="salvar" class="botao botao-dourado botao-quadradro botao-delineado-dourado">
                     <div class="botao-flex">
                         <span class="material-icons icone">done</span>
                         <div class="texto">Salvar</div>

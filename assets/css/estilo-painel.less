@@ -534,6 +534,11 @@ body{
   text-decoration: none;
 }
 
+.texto-cor-dourado{
+  color: @dourado;
+  text-decoration: none;
+}
+
 /*Cores Padrão de Texto*/
 /*-------------------------------*/
 
@@ -750,6 +755,21 @@ body{
 
 .botao-delineado-erro{
   border: 1px solid @cor_erro_hover;
+}
+
+.botao-dourado{
+  background: @dourado;
+  color: #3b3b3b;
+  transition: all 0.35s;
+
+  &:hover{
+    background: @dourado_hover;
+    color: #fff;
+  }
+}
+
+.botao-delineado-dourado{
+  border: 1px solid #b67b00;
 }
 
 @media(max-width: 961px) {

@@ -2,11 +2,11 @@
     <header class="bloco-conteudo">
 
         <div class="flex-space-between">
-            <div class="titulo font-bold texto-cor-sucesso">Turmas</div>
+            <div class="titulo font-bold texto-cor-dourado">Turmas</div>
             <div>
 
                 <?php if(\Geral\Sessao::getTipoUsuarioPainel() == 'admin'): ?>
-                <a @click="novo" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso margin-right5">
+                <a @click="novo" class="botao botao-arredondado botao-dourado botao-delineado-dourado margin-right5">
                     <div class="botao-flex">
                         <span class="icone material-icons">add</span>
                         <span>Adicionar</span>
@@ -14,7 +14,7 @@
                 </a>
                 <?php endif; ?>
 
-                <a @click="modalRelatorio" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
+                <a @click="modalRelatorio" class="botao botao-arredondado botao-dourado botao-delineado-dourado">
                     <div class="botao-flex">
                         <span class="icone material-icons">assessment</span>
                         <span>Relatório</span>

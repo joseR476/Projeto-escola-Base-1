@@ -2,9 +2,9 @@
     <header class="bloco-conteudo">
 
         <div class="flex-space-between">
-            <div class="titulo font-bold texto-cor-sucesso">Séries</div>
+            <div class="titulo font-bold texto-cor-dourado">Séries</div>
             <div>
-                <a @click="novo" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
+                <a @click="novo" class="botao botao-arredondado botao-dourado botao-delineado-dourado">
                     <div class="botao-flex">
                         <span class="icone material-icons">add</span>
                         <span>Adicionar</span>

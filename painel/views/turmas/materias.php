@@ -8,12 +8,12 @@
                     <div><span class="material-icons icone">keyboard_arrow_left</span></div>
                 </a>
 
-                <div class="titulo font-bold texto-cor-sucesso">Matéria da Turma: <?php echo SeriesModel::find_by_id($dados->turma->id_serie)->nome .' '. $dados->turma->turma.' '.($dados->turma->turno == 'manha' ? 'Manhã' : 'Tarde') ?></div>
+                <div class="titulo font-bold texto-cor-dourado">Matéria da Turma: <?php echo SeriesModel::find_by_id($dados->turma->id_serie)->nome .' '. $dados->turma->turma.' '.($dados->turma->turno == 'manha' ? 'Manhã' : 'Tarde') ?></div>
             </div>
 
             <?php if(\Geral\Sessao::getTipoUsuarioPainel() == 'admin'): ?>
             <div>
-                <a @click="novo" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
+                <a @click="novo" class="botao botao-arredondado botao-dourado botao-delineado-dourado">
                     <div class="botao-flex">
                         <span class="icone material-icons">add</span>
                         <span>Adicionar</span>

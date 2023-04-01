@@ -8,11 +8,11 @@
                     <div><span class="material-icons icone">keyboard_arrow_left</span></div>
                 </a>
 
-                <div class="titulo font-bold texto-cor-sucesso">Alunos da Turma: Nome da Turma</div>
+                <div class="titulo font-bold texto-cor-dourado">Alunos da Turma: Nome da Turma</div>
             </div>
 
             <div>
-                <a @click="novo" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
+                <a @click="novo" class="botao botao-arredondado botao-dourado botao-delineado-dourado">
                     <div class="botao-flex">
                         <span class="icone material-icons">add</span>
                         <span>Adicionar</span>
@@ -95,7 +95,7 @@
 
             <div class="espaco20"></div>
             <div class="col-md-12">
-                <button type="submit" name="salvar" id="salvar" class="botao botao-sucesso botao-quadradro botao-delineado-sucesso">
+                <button type="submit" name="salvar" id="salvar" class="botao botao-dourado botao-quadradro botao-delineado-dourado">
                     <div class="botao-flex">
                         <span class="material-icons icone">list</span>
                         <div class="texto">Salvar Ordenação</div>

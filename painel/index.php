@@ -25,7 +25,7 @@
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
     <link rel="icon" href="<?php echo HOME ?>/assets/imagens/favicon.png">
 
-    <title><?php echo $titulo_pagina ?></title>
+    <title>Jones School - Quality Education</title>
 
     <link rel="stylesheet" href="<?php echo HOME ?>/assets/css/grid.css"/>
     <link rel="stylesheet" href="<?php echo HOME ?>/assets/css/boot.css"/>

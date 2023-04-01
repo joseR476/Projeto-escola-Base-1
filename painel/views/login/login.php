@@ -6,7 +6,7 @@
 
         <form action="<?php echo HOME ?>/painel/login" name="formLogin" id="formLogin" method="post">
 
-            <img src="<?php echo HOME ?>/assets/imagens/logo/logo.png" style="max-width: 270px" alt="">
+            <img src="<?php echo HOME ?>/assets/imagens/logo/logo.png" style="max-width: 210px" alt="">
             <div class="espaco40"></div>
             <?php if(isset(\Geral\Utilidades::getUrl()[1]) && \Geral\Utilidades::getUrl()[1] == 'erro'): ?>
                 <div class="box-info fundo-erro border-radius10 texto-cor-erro">
@@ -16,7 +16,7 @@
             <?php endif; ?>
 
             <div class="grupo-input">
-                <span class="material-icons texto-cor-sucesso">supervisor_account</span>
+                <span class="material-icons texto-cor-dourado">supervisor_account</span>
                 <select name="tipo" id="tipo">
                     <option value="admin">Administrativo</option>
                     <option value="professor">Professor</option>
@@ -25,13 +25,13 @@
             <div class="espaco10"></div>
 
             <div class="grupo-input">
-                <span class="material-icons texto-cor-sucesso">account_circle</span>
+                <span class="material-icons texto-cor-dourado">account_circle</span>
                 <input type="tel" name="login" id="login" placeholder="Entre com seu login">
             </div>
             <div class="espaco10"></div>
 
             <div class="grupo-input">
-                <span class="material-icons texto-cor-sucesso">lock</span>
+                <span class="material-icons texto-cor-dourado">lock</span>
                 <input type="password" name="senha" id="senha" placeholder="Entre com sua senha">
             </div>
             <div class="espaco20"></div>
