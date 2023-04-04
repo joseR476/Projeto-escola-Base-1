@@ -2,13 +2,12 @@ import HOME from "./modules/root.js";
 
 $(function () {
 
-    let font_size = parseInt(sessionStorage['font_size']);
-
-    if(font_size == ''){
+    if(!parseInt(sessionStorage['font_size'])){
         sessionStorage['font_size'] = 100;
         console.log(sessionStorage['font_size']);
-        font_size = sessionStorage['font_size'];
     }
+
+    let font_size = sessionStorage['font_size'];
 
     let elementBody = document.querySelector('body');
     let elementSidebar = document.querySelector('.sidebar');

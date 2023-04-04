@@ -82,7 +82,7 @@ if(!function_exists('notificacaoAproveitamento')){
                 </tr>
                 
                 <tr>
-                    <td class="texto-centro">Aproveitamento para relembrar que o aproveitamento mínimo exigido é de 75%.</td>
+                    <td class="texto-centro">Aproveitamos para relembrar que o aproveitamento mínimo exigido é de 75%.</td>
                 </tr>
             </table>
         ';

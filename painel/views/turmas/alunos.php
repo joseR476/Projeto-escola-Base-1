@@ -132,36 +132,38 @@ ModalComIcone(
                 </div>         
                 <div class="espaco10"></div>
                 
-                <table class="tabela-linha-ativa">
-                <thead>
-                <tr>
-                    <th width="30"></th>
-                    <th width="50">Código</th>
-                    <th>Aluno</th>
-                    <th class="texto-centro">RA</th>
-                    <th class="texto-centro">E-mail</th>
-                    <th class="texto-centro">Telefone</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <tr v-for="registro in registros" :key="registro.id">
-                    <td width="30">
-                        <a @click="adicionar(registro.id)" class="botao-circular botao-circular-padrao-claro botao-circular-medio margin-right10">
-                            <div>
-                                <span class="material-icons icone">add</span>
-                            </div>
-                        </a>
-                    </td>
-                    <td width="50">{{ registro.id }}</td>
-                    <td class="texto-esquerda">{{ registro.nome }}</td>
-                    <td class="texto-centro">{{ registro.ra }}</td>
-                    <td class="texto-centro">{{ registro.email }}</td>
-                    <td class="texto-centro">{{ registro.telefone }}</td>
-                </tr>
-
-                </tbody>
-            </table>
+                <div class="table-responsive">
+                    <table class="tabela-linha-ativa">
+                    <thead>
+                    <tr>
+                        <th width="30"></th>
+                        <th width="50">Código</th>
+                        <th>Aluno</th>
+                        <th class="texto-centro">RA</th>
+                        <th class="texto-centro">E-mail</th>
+                        <th class="texto-centro">Telefone</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+    
+                    <tr v-for="registro in registros" :key="registro.id">
+                        <td width="30">
+                            <a @click="adicionar(registro.id)" class="botao-circular botao-circular-padrao-claro botao-circular-medio margin-right10">
+                                <div>
+                                    <span class="material-icons icone">add</span>
+                                </div>
+                            </a>
+                        </td>
+                        <td width="50">{{ registro.id }}</td>
+                        <td class="texto-esquerda">{{ registro.nome }}</td>
+                        <td class="texto-centro">{{ registro.ra }}</td>
+                        <td class="texto-centro">{{ registro.email }}</td>
+                        <td class="texto-centro">{{ registro.telefone }}</td>
+                    </tr>
+    
+                    </tbody>
+                </table>
+            <div class="table-responsive">
             
             </div>     
           ',
