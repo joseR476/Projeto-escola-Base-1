@@ -17,16 +17,6 @@ switch ($tipo_conexao):
         define('HOME', 'http://localhost/sistema-escolar');
         $cfg->set_connections(array('development' => 'mysql://root:@localhost/sistema_escolar'));
         break;
-
-    case 'atalhus.agenciakelps.com.br':
-        define('HOME', 'http://atalhus.agenciakelps.com.br');
-        $cfg->set_connections(array('development' => 'mysql://u890512860_atalhus:Mudar123@localhost/u890512860_atalhus'));
-        break;
-
-    default:
-        define('HOME', 'http://localhost/mvc');
-        $cfg->set_connections(array('development' => 'mysql://root:@localhost/mvc'));
-        break;
 endswitch;
 
 /*Configuração de URL*/

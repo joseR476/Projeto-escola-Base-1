@@ -84,6 +84,31 @@ class DiariosController extends Rotas
         $id_materia = Utilidades::getUrl()[2];
         $id_diario = Utilidades::getUrl()[3];
 
+        $this->dados->turma = \TurmasModel::find_by_id($id_turma);
+
+        $this->dados->id_turma = $id_turma;
+        $this->dados->id_materia = $id_materia;
+
+        $this->dados->diarios = \DiariosModel::all(['conditions' => ['id_turma = ? and id_materia = ?', $id_turma, $id_materia], 'order' => 'data desc']);
+
+        $tipo_usuario = Sessao::getTipoUsuarioPainel();
+
+        if($tipo_usuario == 'admin'):
+            $materias = \VTurmasMateriasModel::all(['conditions' => ['id_turma = ?', $id_turma], 'order' => 'nome_materia asc']);
+        else:
+            $materias = \VTurmasMateriasModel::all(['conditions' => ['id_turma = ? and id_professor = ?', $id_turma, Sessao::getIdUsuarioPainel()], 'order' => 'nome_materia asc']);
+        endif;
+        //$this->dados->registros = $materias;
+
+        $lista_materias = '';
+        if(!empty($materias)):
+            foreach ($materias as $materia):
+                $lista_materias .= '<option value="'.$materia->id_materia.'">'.$materia->nome_materia.'</option>';
+            endforeach;
+        endif;
+
+        $this->dados->materias = $lista_materias;
+
         $materia = \VTurmasMateriasModel::find_by_id_turma_and_id_materia($id_turma, $id_materia);
         $this->dados->materia = $materia;
 
@@ -102,6 +127,14 @@ class DiariosController extends Rotas
         $id_materia = Utilidades::getUrl()[2];
         $id_diario = Utilidades::getUrl()[3];
         \RegistrosDiarioClasseModel::salvar($_POST);
+
+        $alunos = \VRegistrosDiarioModel::all(['conditions' => ['id_turma = ? and id_materia = ?', $id_turma, $id_materia]]);
+        if(!empty($alunos)):
+            foreach ($alunos as $aluno):
+                verificarAproveitamento($aluno->id_aluno, $id_turma, $id_materia);
+            endforeach;
+        endif;
+
         $this->Redireciona(HOME.'/painel/alterar-diario-turma/'.$id_turma.'/'.$id_materia.'/'.$id_diario.'/ok');
     }
 

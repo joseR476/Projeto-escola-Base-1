@@ -50,7 +50,7 @@ class PainelController extends Rotas {
 
     public function sair()
     {
-        //Sessao::encerraSessaoPainel();
+        Sessao::encerraSessaoPainel();
         $this->Redireciona(HOME.'/painel/login');
     }
 

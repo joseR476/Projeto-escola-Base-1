@@ -2,6 +2,20 @@ import HOME from "./modules/root.js";
 
 $(function () {
 
+    let font_size = parseInt(sessionStorage['font_size']);
+
+    if(font_size == ''){
+        sessionStorage['font_size'] = 100;
+        console.log(sessionStorage['font_size']);
+        font_size = sessionStorage['font_size'];
+    }
+
+    let elementBody = document.querySelector('body');
+    let elementSidebar = document.querySelector('.sidebar');
+
+    elementBody.style.fontSize = parseInt(font_size) + '%';
+    elementSidebar.style.fontSize = parseInt(font_size) + '%';
+
     $('.bt-excluir').click(function () {
 
         let modal = $(this).attr('href');
@@ -10,17 +24,30 @@ $(function () {
 
     });
 
-    $('#mostrar_por_pagina').change(function () {
-        let por_pagina = $(this).val();
-        $.post(
-            HOME()+'/scripts/set-por-pagina',
-            { quantidade: por_pagina },
-            function (data) {
-                if(data.status === 'ok'){
-                    location.reload();
-                }
-            }, 'json'
-        );
+
+
+    $('#bt-diminuir-fonte').click(function () {
+
+        let porcentagem_diminuicao = 15;
+        font_size = parseInt(font_size) - porcentagem_diminuicao ;
+        sessionStorage['font_size'] = font_size;
+
+        elementBody.style.fontSize = font_size + '%';
+        elementSidebar.style.fontSize = font_size + '%';
+
     });
 
-})
+
+
+    $('#bt-aumentar-fonte').click(function () {
+
+        let porcentagem_aumento = 15;
+        font_size = parseInt(font_size) + porcentagem_aumento;
+        sessionStorage['font_size'] = font_size;
+
+        elementBody.style.fontSize = font_size + '%';
+        elementSidebar.style.fontSize = font_size + '%';
+
+    });
+
+});

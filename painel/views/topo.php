@@ -1,5 +1,5 @@
 <?php
-    //\Geral\Sessao::verificaSessaoPainel();
+    \Geral\Sessao::verificaSessaoPainel();
 ?>
 <header id="topo">
 
@@ -31,6 +31,16 @@
 
                 <div id="bt-menu-mobile">
                     <span class="material-icons">menu</span>
+                </div>
+
+                <div class="flex-centro">
+                <button type="button" id="bt-diminuir-fonte" class="botao-circular botao-circular-grande botao-circular-padrao margin-right5">
+                    <span class="material-icons">text_decrease</span>
+                </button>
+
+                <button type="button" id="bt-aumentar-fonte" class="botao-circular botao-circular-grande botao-circular-padrao">
+                    <span class="material-icons">text_increase</span>
+                </button>
                 </div>
 
                 <!--

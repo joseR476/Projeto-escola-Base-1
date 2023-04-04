@@ -168,7 +168,7 @@
   color: #f0a500;
 }
 .sidebar .nav-links li a .link_name {
-  font-size: 18px;
+  /*font-size: 18px;*/
   font-weight: 400;
   color: #f0a500;
   transition: all 0.4s ease;
@@ -188,7 +188,7 @@
 }
 .sidebar .nav-links li .sub-menu a {
   color: #173431;
-  font-size: 15px;
+  /*font-size: 15px;*/
   font-weight: 500;
   padding: 8px 0;
   white-space: nowrap;

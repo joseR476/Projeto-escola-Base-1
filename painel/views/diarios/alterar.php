@@ -12,21 +12,21 @@
                 </a>
 
                 <div>
-                <div class="titulo font-bold texto-cor-sucesso">Diários da Turma: <?php echo $dados->materia->nome_serie .' '. $dados->materia->nome_turma ?></div>
-                <div class="titulo font-bold texto-cor-sucesso">Matéria: <?php echo $dados->materia->nome_materia ?></div>
-                <div class="titulo font-bold texto-cor-sucesso">Data: <?php echo $dados->diario->data->format('d/m/Y') ?></div>
+                <div class="titulo font-bold texto-cor-dourado">Diários da Turma: <?php echo $dados->materia->nome_serie .' '. $dados->materia->nome_turma ?></div>
+                <div class="titulo font-bold texto-cor-dourado">Matéria: <?php echo $dados->materia->nome_materia ?></div>
+                <div class="titulo font-bold texto-cor-dourado">Data: <?php echo $dados->diario->data->format('d/m/Y') ?></div>
                 </div>
             </div>
 
             <div class="flex-centro">
-                <a @click="novo" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso margin-right5">
+                <a @click="novo" class="botao botao-arredondado botao-dourado botao-delineado-dourado margin-right5">
                     <div class="botao-flex">
                         <span class="icone material-icons">add</span>
                         <span>Adicionar</span>
                     </div>
                 </a>
 
-                <button type="submit" class="botao botao-arredondado botao-sucesso botao-delineado-sucesso">
+                <button type="submit" class="botao botao-arredondado botao-dourado botao-delibotao-dourado">
                     <div class="botao-flex">
                         <span class="icone material-icons">save</span>
                         <span>Salvar</span>

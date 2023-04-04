@@ -58,6 +58,7 @@ class AlunosTurmasController extends Rotas
 
     }
 
+
     public function excluir(){
         $id = filtra_int($_POST['id']);
         \TurmasAlunosModel::setId($id);

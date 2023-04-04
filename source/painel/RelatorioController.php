@@ -108,6 +108,8 @@ class RelatorioController extends Rotas
             endforeach;
         endif;
 
+        $turma = \VTurmasModel::find_by_id($id_turma);
+
         $html = '
             <html>
                 <head>
@@ -125,7 +127,9 @@ class RelatorioController extends Rotas
                 <body>
                 
                     <div class="espaco10"></div>
-                    <div class="size1-1 font-bold">Professor: '.(\UsuariosModel::find_by_id($id_professor)->nome).'</div>
+                    <div class="size1-1 font-bold texto-centro">Professor: '.(\UsuariosModel::find_by_id($id_professor)->nome).'</div>
+                    <div class="espaco10"></div>
+                    <div class="texto-centro">'.$turma->nome_serie.' '.$turma->turma.'</div>
                     <div class="espaco10"></div>
                     
                     '.$periodo_relatorio.'
