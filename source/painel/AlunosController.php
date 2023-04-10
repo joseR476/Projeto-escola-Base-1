@@ -24,6 +24,8 @@ class AlunosController extends Rotas
             \AlunosModel::setNome(filtra_string($_POST['nome']));
             \AlunosModel::setRa(filtra_string($_POST['ra']));
             \AlunosModel::setEmail(filtra_string($_POST['email']));
+            \AlunosModel::setNomeResponsavel(filtra_string($_POST['nome_responsavel']));
+            \AlunosModel::setEmailResponsavel(filtra_string($_POST['email_responsavel']));
             \AlunosModel::setTelefone(filtra_string($_POST['telefone']));
             \AlunosModel::setRua(filtra_string($_POST['rua']));
             \AlunosModel::setNumero(filtra_string($_POST['numero']));
@@ -54,6 +56,8 @@ class AlunosController extends Rotas
             \AlunosModel::setNome(filtra_string($_POST['nome']));
             \AlunosModel::setRa(filtra_string($_POST['ra']));
             \AlunosModel::setEmail(filtra_string($_POST['email']));
+            \AlunosModel::setNomeResponsavel(filtra_string($_POST['nome_responsavel']));
+            \AlunosModel::setEmailResponsavel(filtra_string($_POST['email_responsavel']));
             \AlunosModel::setTelefone(filtra_string($_POST['telefone']));
             \AlunosModel::setRua(filtra_string($_POST['rua']));
             \AlunosModel::setNumero(filtra_string($_POST['numero']));

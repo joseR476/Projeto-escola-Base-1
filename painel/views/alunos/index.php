@@ -55,6 +55,7 @@
                         <th class="texto-esquerda">Aluno</th>
                         <th class="texto-centro">RA</th>
                         <th class="texto-centro">E-mail</th>
+                        <th class="texto-centro">E-mail Responsãvel</th>
                         <th class="texto-centro">Telefone</th>
                         <th width="150"></th>
                     </tr>
@@ -71,6 +72,7 @@
                                 <td class="texto-esquerda">'.$registro->nome.'</td>
                                 <td class="texto-centro">'.$registro->ra.'</td>
                                 <td class="texto-centro">'.$registro->email.'</td>
+                                <td class="texto-centro">'.$registro->email_responsavel.'</td>
                                 <td class="texto-centro">'.$registro->telefone.'</td>
                                 <td class="flex-a-direita">
                                     <a href="'.HOME.'/painel/alterar-aluno/'.$registro->id.'" data-tippy-content="Alterar" class="botao-circular botao-circular-padrao-claro botao-circular-pequeno margin-right5"><i class="material-icons icone">edit</i></a>

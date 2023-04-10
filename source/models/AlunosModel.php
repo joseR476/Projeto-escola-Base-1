@@ -10,6 +10,8 @@ class AlunosModel extends Model
     private static $nome;
     private static $ra;
     private static $email;
+    private static $nome_responsavel;
+    private static $email_responsavel;
     private static $telefone;
     private static $rua;
     private static $numero;
@@ -58,6 +60,27 @@ class AlunosModel extends Model
     {
         self::$email = $email;
     }
+
+    public static function getNomeResponsavel()
+    {
+        return self::$nome_responsavel;
+    }
+
+    public static function setNomeResponsavel($nome_responsavel)
+    {
+        self::$nome_responsavel = $nome_responsavel;
+    }
+
+    public static function getEmailResponsavel()
+    {
+        return self::$email_responsavel;
+    }
+
+    public static function setEmailResponsavel($email_responsavel)
+    {
+        self::$email_responsavel = $email_responsavel;
+    }
+
 
     public static function getTelefone()
     {
@@ -151,6 +174,8 @@ class AlunosModel extends Model
         $registro->nome = self::getNome();
         $registro->ra = self::getRa();
         $registro->email = self::getEmail();
+        $registro->nome_responsavel = self::getNomeResponsavel();
+        $registro->email_responsavel = self::getEmailResponsavel();
         $registro->telefone = self::getTelefone();
         $registro->rua = self::getRua();
         $registro->numero = self::getNumero();

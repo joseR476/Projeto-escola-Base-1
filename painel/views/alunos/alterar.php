@@ -98,6 +98,22 @@
                 <div class="espaco20"></div>
 
                 <div class="col-md-12">
+                    <div class="grupo-input">
+                        <label for="regular1" class="control-label">Nome do Responsável</label>
+                        <input type="text" name="nome_responsavel" id="nome_responsavel" class="input input-delineado input-quadrado" autocomplete="off"  value="<?php echo $dados->registro->nome_responsavel; ?>">
+                    </div>
+                </div>
+                <div class="espaco20"></div>
+
+                <div class="col-md-12">
+                    <div class="grupo-input">
+                        <label for="regular1" class="control-label">E-mail do Responsável</label>
+                        <input type="email" name="email_responsavel" id="email_responsavel" class="input input-delineado input-quadrado" autocomplete="off"  value="<?php echo $dados->registro->email_responsavel; ?>">
+                    </div>
+                </div>
+                <div class="espaco20"></div>
+
+                <div class="col-md-12">
                     <div class="font-bold size1-2">ENDEREÇO</div>
                 </div>
                 <div class="espaco10"></div>

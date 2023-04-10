@@ -46,28 +46,30 @@ if(!function_exists('notificacaoAproveitamento')){
 
         $aluno = AlunosModel::find_by_id($id_aluno);
 
-        $mail = new PHPMailer();
-        $mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output
-        $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = $host;                     //Set the SMTP server to send through
-        $mail->SMTPAuth   = $smtp_auth;                                   //Enable SMTP authentication
-        $mail->Username   = $username;                     //SMTP username
-        $mail->Password   = $password;                               //SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        if(!empty($aluno->email_responsavel)):
 
-        //Recipients
-        $mail->setFrom($username, '=?UTF-8?B?' . base64_encode('Jones School') . '?=');
-        $mail->addAddress($aluno->email, '=?UTF-8?B?' . base64_encode($aluno->nome) . '?=');     //Add a recipient
+            $mail = new PHPMailer();
+            $mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = $host;                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = $smtp_auth;                                   //Enable SMTP authentication
+            $mail->Username   = $username;                     //SMTP username
+            $mail->Password   = $password;                               //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-        //Content
-        $mail->CharSet = 'UTF-8';
-        $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = '=?UTF-8?B?' . base64_encode('Aproveitamento do Aluno') . '?=';
+            //Recipients
+            $mail->setFrom($username, '=?UTF-8?B?' . base64_encode('Jones School') . '?=');
+            $mail->addAddress($aluno->email_responsavel, '=?UTF-8?B?' . base64_encode($aluno->nome) . '?=');     //Add a recipient
 
-        $materia = MateriasModel::find_by_id($id_materia);
+            //Content
+            $mail->CharSet = 'UTF-8';
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = '=?UTF-8?B?' . base64_encode('Aproveitamento do Aluno') . '?=';
 
-        $mensagem = '
+            $materia = MateriasModel::find_by_id($id_materia);
+
+            $mensagem = '
             <table width="100%">
                 <tr>
                     <td class="texto-centro"><img src="'.HOME.'/assets/imagens/logo/logo.png" width="150" /></td>
@@ -87,9 +89,11 @@ if(!function_exists('notificacaoAproveitamento')){
             </table>
         ';
 
-        $mail->Body    = $mensagem;
+            $mail->Body    = $mensagem;
 
-        $mail->send();
+            $mail->send();
+
+        endif;
 
     }
 }
